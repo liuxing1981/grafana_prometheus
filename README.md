@@ -11,6 +11,11 @@
 	cd prometheus && vi promethues.yml
 ```
 #### edit prometheus.yml to make sure all servers you want to monitor in the scrape_configs list
+### 2 create docker volumes.
+```
+    ./init.sh
+```
+### 3 start prometheus service.
 ```
     ./prometheus.sh
 ```
@@ -22,7 +27,7 @@
 ```
 #### access the URL with brower to make sure the promethues service is started successfully.
 
-### 2 start the node-exporter service
+### 4 start the node-exporter service
 #### node-exporter service is running in those servers you'd like to monitor.
 ```
    ./node-exporter.sh
@@ -32,7 +37,7 @@
 #### if the node-exporter is started
 !(ALT text)[img/node-exporter.png]
 
-#### 3 start the grafana
+#### 5 start the grafana
 ```
     ./grafana.sh
 ```
@@ -55,3 +60,21 @@
 >   !(ALT text)[img/load]
 >   !(ALT text)[img/imoprt2]
 
+#  use docker-compose on your localhost
+### edit the prometheus/prometheus.yml file.
+### create docker volumes.
+```
+   ./init.sh
+```
+
+### start docker compose
+```
+   docker-compose up -d
+```
+### config grafana
+*  config datasource
+*  download a template
+```
+    https://grafana.com/dashboards/893/revisions
+```
+*  load this template to grafana
