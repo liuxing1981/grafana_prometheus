@@ -27,12 +27,4 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['localhost:9090']
-        labels:
-          instance: prometheus
- 
-  - job_name: localhost
-    static_configs:
-      - targets: ['192.168.208.70:9100','192.168.208.70:9101']
-        labels:
-          instance: localhost
+        - targets: ['localhost:9090','cadvisor:8080','node-exporter:9100']

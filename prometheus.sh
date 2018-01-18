@@ -5,9 +5,10 @@
 # Created Time: 2018年01月17日 星期三 16时46分26秒
 #########################################################################
 #!/bin/bash
-cp -R prometheus ~
+docker rm -f prometheus 2>/dev/null
 docker run -d \
   -p 9090:9090 \
   --name prometheus \
-  -v ~/prometheus:/etc/prometheus \
-  quay.io/prometheus/prometheus
+  -v ~/monitor/prometheus/config:/etc/prometheus \
+  -v ~/monitor/prometheus/data:/var/lib/prometheus \
+  prom/prometheus
