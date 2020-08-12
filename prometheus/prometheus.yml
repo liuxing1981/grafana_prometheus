@@ -27,12 +27,12 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['10.67.27.139:9090']
         labels:
           instance: prometheus
  
   - job_name: localhost
     static_configs:
-      - targets: ['192.168.208.70:9100','192.168.208.70:9101']
+      - targets: ['10.67.27.139:9100']
         labels:
           instance: localhost
